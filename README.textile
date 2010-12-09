@@ -1,0 +1,29 @@
+h1. current_object
+
+Do you need to keep track of a current user, account, page, etc? The current_object gem does just that.
+
+@current_object@ takes the same approach to keeping track of a user as "SentientUser":https://github.com/bokmann/sentient_user
+by David Bock, but goes completely class agnostic. You can even keep track of multiple "current" objects at once.
+
+h2. Usage
+
+Just require the @current_object@ gem into your project and @include CurrentObject@.
+
+<pre><code>
+# foo.rb
+require 'current_object'
+
+class Foo
+  include CurrentObject
+end
+
+# using my foo class
+
+@foo = Foo.new
+
+# time to make this my current foo instance
+@foo.current!
+
+# what is my current foo instance?
+Foo.current
+</code></pre>
