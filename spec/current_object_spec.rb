@@ -24,4 +24,13 @@ describe Foo do
       Foo.current.should == @foo
     end
   end
+
+  describe '.clear_current!' do
+    it 'forgets about the instance you made current' do
+      @foo.current!
+      Foo.clear_current!
+
+      Foo.current.should be_nil
+    end
+  end
 end

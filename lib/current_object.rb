@@ -26,5 +26,20 @@ module CurrentObject
     def current
       Thread.current[self.name]
     end
+
+    # clear_current! - Have your class forget about the "current" instance
+    #
+    # @foo = Foo.new
+    # @foo.current!
+    #
+    # Foo.current
+    # # => @foo
+    #
+    # Foo.clear_current!
+    # Foo.current
+    # # => nil
+    def clear_current!
+      Thread.current[self.name] = nil
+    end
   end
 end
