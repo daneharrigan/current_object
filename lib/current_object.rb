@@ -1,3 +1,5 @@
+require 'thread'
+
 module CurrentObject
   def self.included(base)
     base.send(:include, CurrentObject::InstanceMethods)
